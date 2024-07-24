@@ -21,7 +21,7 @@ void clear_screen()
 
 void update_display()
 {
-    ClearBackground(BLACK);
+    //ClearBackground(BLACK);
     for(int x = 0; x < WIDTH_IN_PIXEL; x++)
     {
         for(int y = 0; y < HEIGHT_IN_PIXEL; y++)
@@ -29,6 +29,10 @@ void update_display()
             if(screen[x][y] == on)
             {
                 DrawRectangle(x*SCALE_FACTOR, y*SCALE_FACTOR, SCALE_FACTOR, SCALE_FACTOR, WHITE);
+            }
+            else
+            {
+                DrawRectangle(x*SCALE_FACTOR, y*SCALE_FACTOR, SCALE_FACTOR, SCALE_FACTOR, BLACK);
             }
         }
     }
