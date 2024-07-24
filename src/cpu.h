@@ -175,7 +175,7 @@ void (*function_table[])(chip8*, nibble) = {
 
 
 void init_chip8(chip8* chip);
-nibble get_opcode(chip8* chip);
+uint16_t get_opcode(chip8* chip);
 
 
 

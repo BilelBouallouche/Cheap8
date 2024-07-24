@@ -97,6 +97,94 @@ void nib_to_func(nibble nib, chip8* chip)
         case 7:
             func_to_execute = ADD;
             break;
+        case 8:
+            switch(nib.n)
+            {
+                case 0:
+                    func_to_execute = LDVY;
+                    break;
+                case 1:
+                    func_to_execute = OR;
+                    break;
+                case 2:
+                    func_to_execute = AND;
+                    break;
+                case 3:
+                    func_to_execute = XOR;
+                    break;
+                case 4:
+                    func_to_execute = ADDVY;
+                    break;
+                case 5:
+                    func_to_execute = SUBVY;
+                    break;
+                case 6:
+                    func_to_execute = SHR;
+                    break;
+                case 7:
+                    func_to_execute = SUBN;
+                    break;
+                case 0x0E:
+                    func_to_execute = SHL;
+                    break;
+            }
+            break;
+        case 9:
+            func_to_execute = SNEV;
+            break;
+        case 0xA:
+            func_to_execute = LDI;
+            break;
+        case 0xB:
+            func_to_execute = JPV0;
+            break;
+        case 0xC:
+            func_to_execute = RND;
+        case 0xD:
+            func_to_execute = DRAW;
+            break;
+        case 0xE:
+            if(nib.kk == 0x9E)
+            {
+                func_to_execute = SKP;
+            }
+            else if(nib.kk = 0xA1)
+            {
+                func_to_execute = SKNP;
+            }
+            break;
+        case 0xF:
+            switch(nib.kk)
+            {
+                case 0x07:
+                    func_to_execute = LD_DT_VX;
+                    break;
+                case 0x0A:
+                    func_to_execute = LD_KEY;
+                    break;
+                case 0x15:
+                    func_to_execute = LD_DT;
+                    break;
+                case 0x18:
+                    func_to_execute = LD_ST;
+                    break;
+                case 0x1E:
+                    func_to_execute = ADD_I;
+                    break;
+                case 0x29:
+                    func_to_execute = LD_F;
+                    break;
+                case 0x33:
+                    func_to_execute = LD_B;
+                    break;
+                case 0x55:
+                    func_to_execute = LD_I_VX;
+                    break;
+                case 0x65:
+                    func_to_execute = LD_VX_I;
+                    break;
+            }
+            break;
         default:
             func_to_execute = NA_FUNCTION;
 
